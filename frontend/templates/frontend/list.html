@@ -144,9 +144,6 @@
 
         function buildList() {
             var wrapper = document.getElementById('list-wrapper')
-            //wrapper.innerHTML = ''
-
-
 
             var url = 'http://127.0.0.1:8000/api/task-list/'
 
@@ -158,14 +155,9 @@
                     var list = data
                     for (var i in list) {
 
-
                         try {
                             document.getElementById(`data-row-${i}`).remove()
-                        } catch (err) {
-
-                        }
-
-
+                        } catch (err) {}
 
                         var title = `<span class="title">${list[i].title}</span>`
                         if (list[i].completed == true) {
