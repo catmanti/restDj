@@ -35,10 +35,10 @@ function buildList() {
         ${lst.title}
       </div>
       <div  style="flex:.1">
-        <button type="button" id="${lst.id}" class="btn btn-info edit">Edit</button>
+        <button type="button" id="${lst.id}" class="btn btn-info edit"><i class="fas fa-list-alt"></i></button>
       </div>
       <div  style="flex:.5">
-        <button type="button" class="btn btn-outline-dark">-</button>
+        <button type="button" id="${lst.id}" class="btn btn-outline-dark delete"><i class="fas fa-trash-alt"></i></button>
       </div>
     </div>
 
@@ -52,6 +52,13 @@ function buildList() {
           document.getElementById("title").value = title;
           id = this.id;
         });
+      }
+      let delBtns = document.querySelectorAll('.delete');
+      for (i of delBtns) {
+        i.addEventListener('click', function () {
+          deleteItem(this.id);
+        });
+
       }
       // console.log(data);
     })
@@ -92,3 +99,16 @@ form.addEventListener('submit', function (e) {
     })
   }
 })
+
+function deleteItem(id) {
+  console.log('Delete clicked')
+  fetch(`http://127.0.0.1:8000/api/task-delete/${id}/`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json',
+      'X-CSRFToken': csrftoken,
+    }
+  }).then((response) => {
+    buildList()
+  })
+}
