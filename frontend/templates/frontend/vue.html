@@ -1,4 +1,5 @@
 {% load static %}
+{% comment %} Use Vue.js & Materializedcss {% endcomment %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,18 +7,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
     <title>Document</title>
-    <script src="https://kit.fontawesome.com/2ef1506549.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'frontend/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 
 <body>
-    <div class="container">
+    <div id="app" class="container">
 
         <div id="task-container">
             <div id="form-wrapper">
@@ -32,16 +28,13 @@
                     </div>
                 </form>
             </div>
-
             <div id="list-wrapper" class='task-container'>
-
+                ((data))
             </div>
         </div>
-
     </div>
 
-
-    <script type="text/javascript" src="{% static 'frontend/script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'frontend/vue.js' %}"></script>
 </body>
 
 </html>

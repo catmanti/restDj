@@ -21,6 +21,14 @@ def apiOverview(request):
     return Response(api_urls)
 
 
+def taskList_d(request):
+    # return Task List in pure django without json
+    tasks = Task.objects.all().order_by('-id')
+    serializer = TaskSerializer(tasks, many=True)
+    context = {'tasks': serializer.data}
+    return render(request, "api/index.html", context)
+
+
 @api_view(['GET'])
 def taskList(request):
     tasks = Task.objects.all().order_by('-id')
