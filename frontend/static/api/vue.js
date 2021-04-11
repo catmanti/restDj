@@ -10,3 +10,4 @@ var app = new Vue({
   }
 })
 
+console.log('Hi catman')
